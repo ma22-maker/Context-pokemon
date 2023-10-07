@@ -1,15 +1,12 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useContext, createContext } from "react";
 //creating the context
 const animeContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 export function AnimeProvider({ children }) 
-{
-//   console.log("hello there");
+{  
   const [allpokemon, setAllpokemon] = useState([]);
-//   const [details, setDetails] = useState();
-//   const [type,setType] =useState("");
 
   const GetPokemon = async (animeName) => {
     try {
@@ -38,10 +35,11 @@ export function AnimeProvider({ children })
       console.error(error);
     }
   };
-  
+
+  useEffect(()=>{getData()},[]);
   return (
     <animeContext.Provider
-      value={{ allpokemon, getData }}
+      value={{ allpokemon}}
     >
       {children}
     </animeContext.Provider>

@@ -5,9 +5,9 @@ import { Useanime } from "./UsingContext";
 function ProductListingPage() {
   let isempty = false;
 
-  const{allpokemon, getData} = Useanime();
+  const{allpokemon} = Useanime();
 
-  useEffect(() => {getData()}, []);
+  // useEffect(() => {getData()}, []);
 
  
 
@@ -16,7 +16,7 @@ function ProductListingPage() {
     return <div>Loading...</div>;
   }
 
-  // console.log(allpokemon);
+   console.log(allpokemon);
 
   return (
     <>
